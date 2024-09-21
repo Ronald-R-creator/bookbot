@@ -1,11 +1,12 @@
 def main():
     with open("books/frankenstein.txt") as f:
         file_contents = f.read()
-        print(file_contents)
-        Number_of_words(file_contents)
-        char_counts = character_count(file_contents)
-        print(char_counts)
-
+        #print(file_contents)
+        #Number_of_words(file_contents)
+        #char_counts = character_count(file_contents)
+        #print(char_counts)
+        Sorting_function(char_counts)
+           
 def Number_of_words(file_contents):
     # Split into words
     words = file_contents.split()
@@ -24,5 +25,12 @@ def character_count(file_contents):
             char_counts[c] = 1
             
     return char_counts
+
+def Sorting_function(char_counts):
+    for c in char_counts:
+        if c.isalpha():
+            print(c)
+    print(char_counts)
+
 
 main()
