@@ -3,7 +3,7 @@ def main():
         file_contents = f.read()
         #print(file_contents)
         #Number_of_words(file_contents)
-        #char_counts = character_count(file_contents)
+        char_counts = character_count(file_contents)
         #print(char_counts)
         Sorting_function(char_counts)
            
@@ -27,10 +27,14 @@ def character_count(file_contents):
     return char_counts
 
 def Sorting_function(char_counts):
-    for c in char_counts:
-        if c.isalpha():
-            print(c)
-    print(char_counts)
+    # Filter for alphabetical characters and create a list of tuples
+    filtered_chars = [(c, count) for c, count in char_counts.items() if c.isalpha()]
 
+    # Sort the list of tuples based on count
+    sorted_char_counts = sorted(filtered_chars, key=lambda item: item[1], reverse=True)
 
+    for char, count in sorted_char_counts:
+        print(f"The '{char}' character was found {count} times")
+    
+    print("---End Report---")
 main()
